@@ -1,0 +1,55 @@
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #dda4a4;
+}
+
+.container {
+    position: relative;
+    background-color: #fff;
+    width: 400px;
+    height: 200px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px #4d4c4d;
+}
+
+.emojis__container {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    overflow: hidden;
+}
+
+.far {
+    margin: 0 1px;
+    transition: transform .2s ease-in-out;
+}
+
+.stars__container {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.fas {
+    color: #c9c9c9;
+    cursor: pointer;
+}
+
+.active {
+    color: #ffe056;
+}
