@@ -1,34 +1,61 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { TURNS } from "./constants";
+import Board from "./components/Board";
+import Turns from "./components/Turns";
+import WinnerModal from "./components/WinnerModal";
+import { useState } from "react";
+import { checkWinner, checkTie } from "./logic";
+import confetti from "canvas-confetti";
+import { saveStorageData, resetStorage } from "./logic/store";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [board, setBoard] = useState(() => {
+    const storageBoard = localStorage.getItem("board");
+    return storageBoard ? JSON.parse(storageBoard) : Array(9).fill(null);
+  });
+
+  const [turn, setTurn] = useState(() => {
+    const storageTurn = localStorage.getItem("turn");
+    return storageTurn ? storageTurn : TURNS.X;
+  });
+
+  const [winner, setWinner] = useState(null);
+
+  const updateBoard = (index) => {
+    if (board[index] || winner) return;
+
+    const newTurn = turn === TURNS.X ? TURNS.O : TURNS.X;
+    setTurn(newTurn);
+
+    const newBoard = [...board];
+    newBoard[index] = turn;
+    setBoard(newBoard);
+    saveStorageData(newBoard, newTurn);
+
+    const newWinner = checkWinner(newBoard);
+    if (newWinner) {
+      setWinner(newWinner);
+      confetti();
+    } else if (checkTie(newBoard)) {
+      setWinner(false);
+    }
+  };
+
+  const resetGame = () => {
+    setBoard(Array(9).fill(null));
+    setTurn(TURNS.X);
+    setWinner(null);
+    resetStorage();
+  };
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+    <main className="board">
+      <h1>Tic-Tac-Toe</h1>
+      <button onClick={resetGame}>Resetear el juego</button>
+      <Board board={board} updateBoard={updateBoard} />
+      <Turns turn={turn} TURNS={TURNS} />
+      <WinnerModal resetGame={resetGame} winner={winner} />
+    </main>
+  );
 }
 
-export default App
+export default App;
