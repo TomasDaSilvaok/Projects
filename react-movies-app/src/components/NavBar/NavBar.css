@@ -1,0 +1,29 @@
+.main-navbar {
+    width: 100vw;
+    box-shadow: 0 0 2px rgba(99, 99, 99, 0.9);
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 85vw;
+    margin: 0 auto;
+    padding: 10px 0;
+}
+
+.nav-container h2 {
+    padding: 10px;
+    font-size: 2rem;
+}
+
+.nav-container form>input {
+    padding: 10px;
+    outline: none;
+    font-size: 1.4rem;
+    border: 1px solid rgb(155, 150, 150);
+    color: #f5f3f3;
+    border-radius: 10px;
+    background-color: transparent;
+}

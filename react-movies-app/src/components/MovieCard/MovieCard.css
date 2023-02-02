@@ -1,0 +1,21 @@
+.movie-card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 40px auto;
+}
+
+.movie-card img {
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .2s transform;
+    width: 300px;
+    box-shadow: 3px 3px 1px rgb(27, 26, 26);
+}
+
+.movie-card img:hover {
+    transform: translateY(-5px);
+    transition: .2s ease-in-out;
+}
