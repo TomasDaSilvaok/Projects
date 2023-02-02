@@ -12,7 +12,7 @@ const NavBar = ({ setMovies }) => {
   return (
     <nav className="main-navbar">
       <div className="nav-container">
-        <h2>🎬 The Best Moives</h2>
+        <h2>🎬 Find Your Movies</h2>
         <form onSubmit={handleInput}>
           <input
             value={searchText}

@@ -1,0 +1,28 @@
+.movie-detail-container {
+    display: flex;
+    width: 90vw;
+    margin: 40px auto;
+    gap: 20px;
+}
+
+.movie-detail-container img {
+    width: 400px;
+    border-radius: 10px;
+}
+
+.movie-data {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.movie-data h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.overview {
+    max-width: 400px;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+}

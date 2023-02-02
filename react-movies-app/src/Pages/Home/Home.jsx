@@ -1,7 +1,8 @@
-import NavBar from "../components/NavBar";
-import MoviesContainer from "../components/MoviesContainer";
-import getMovies from "../services/getMovies";
+import NavBar from "../../components/NavBar";
+import MoviesContainer from "../../components/MoviesContainer";
+import getMovies from "../../services/getMovies";
 import { useState, useEffect } from "react";
+import MovieCard from "../../components/MovieCard";
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -15,7 +16,9 @@ const Home = () => {
   return (
     <section>
       <NavBar setMovies={setMovies} />
-      <MoviesContainer movies={movies} />
+      <MoviesContainer>
+        <MovieCard movies={movies} />
+      </MoviesContainer>
     </section>
   );
 };
