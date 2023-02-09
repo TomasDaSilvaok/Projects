@@ -9,6 +9,7 @@ const Home = () => {
 
   useEffect(() => {
     getMovies().then((res) => {
+      console.log(res);
       setMovies(res.results);
     });
   }, []);

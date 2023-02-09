@@ -7,11 +7,11 @@ const IMG_URL = "https://image.tmdb.org/t/p/w500";
 
 const MovieDetail = () => {
   const [movieDetails, setMovieDetails] = useState([]);
+
   const { id } = useParams();
 
   useEffect(() => {
     getMovieDetails(id).then((res) => {
-      console.log(res);
       setMovieDetails([res]);
     });
   }, []);
@@ -52,6 +52,7 @@ const MovieDetail = () => {
           </Link>
         </div>
       </nav>
+
       {movieDetails.map((movie) => {
         return (
           <div className="movie-detail-container" key={movie.id}>
