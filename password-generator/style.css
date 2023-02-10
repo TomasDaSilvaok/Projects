@@ -57,12 +57,12 @@ header h1 {
 }
 
 .password {
-    color: #d5d2d2f1;
+    color: #f5f1f1f1;
     background-color: #294969;
 }
 
 .password::placeholder {
-    color: #d5d2d2f1;
+    color: #d5d2d2;
 }
 
 button {
@@ -92,4 +92,58 @@ button:hover {
 
 .hide {
     display: none;
+}
+
+.password-input {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.password-input input {
+    width: 100%;
+}
+
+.copy {
+    position: absolute;
+    right: 5px;
+    top: 7px;
+    width: 35px;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 5px;
+}
+
+.copy:hover {
+    background-color: #416080;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+.tooltip .tooltip-text {
+    position: absolute;
+    top: -40px;
+    right: -45px;
+    background-color: #00172edb;
+    padding: 8px;
+    border-radius: 15px;
+    color: #d5d2d2;
+    visibility: hidden;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity .2s ease-in-out;
+}
+
+.tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #00172edb transparent transparent transparent;
 }

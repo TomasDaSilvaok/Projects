@@ -2,6 +2,8 @@ const passwordInput = document.querySelector("#passLength");
 const passwordOutput = document.querySelector("#password");
 const errorMsg = document.querySelector(".error");
 const btn = document.querySelector("button");
+const copy = document.querySelector(".copy");
+const tooltipText = document.querySelector(".tooltip-text");
 
 function generatePassword(length) {
   if (length === "" || length < 8 || length > 30) return;
@@ -28,4 +30,18 @@ btn.addEventListener("click", () => {
     errorMsg.classList.add("hide");
     passwordOutput.value = finalPassword;
   }
+});
+
+copy.addEventListener("click", () => {
+  if (passwordOutput.value === "") return;
+
+  passwordOutput.select();
+  passwordOutput.setSelectionRange(0, 99999);
+
+  navigator.clipboard.writeText(passwordOutput.value);
+
+  tooltipText.textContent = "Contraseña copiada";
+  setTimeout(() => {
+    tooltipText.textContent = "Copiar contraseña";
+  }, 2000);
 });

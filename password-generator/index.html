@@ -27,13 +27,23 @@
           max="30"
         />
         <p class="error hide"></p>
-        <input
-          id="password"
-          class="password"
-          type="text"
-          disabled
-          placeholder="Tu contraseña es..."
-        />
+        <div class="password-input">
+          <input
+            id="password"
+            class="password"
+            type="text"
+            disabled
+            placeholder="Tu contraseña es..."
+          />
+          <div class="tooltip">
+            <img
+              class="copy"
+              src="https://icongr.am/fontawesome/copy.svg?size=100&color=d5d2d2"
+              alt="copy"
+            />
+            <span class="tooltip-text">Copiar contraseña</span>
+          </div>
+        </div>
       </div>
       <button>Generate Password</button>
     </div>
