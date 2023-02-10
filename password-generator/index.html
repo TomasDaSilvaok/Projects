@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="main.js" defer></script>
+  </head>
+  <body>
+    <div class="main-container">
+      <header>
+        <img
+          src="https://icongr.am/fontawesome/lock.svg?size=45&color=214161"
+          alt="lock"
+        />
+        <h1 class="title">Generador de contraseñas</h1>
+      </header>
+      <div class="inputs-container">
+        <label for="passLength">Ingrese cantidad de caracteres deseados:</label>
+        <input
+          id="passLength"
+          type="number"
+          placeholder="Ej: 8,10,18..."
+          min="8"
+          max="30"
+        />
+        <p class="error hide"></p>
+        <input
+          id="password"
+          class="password"
+          type="text"
+          disabled
+          placeholder="Tu contraseña es..."
+        />
+      </div>
+      <button>Generate Password</button>
+    </div>
+  </body>
+</html>
